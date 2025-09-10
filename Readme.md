@@ -94,6 +94,6 @@ Planned features to enhance the functionality of EventHub:
 
 - 🗂️ **Event categories and filters** to improve browsing.
 
-- 📅 **RSVP system** so users can join or attend events.
+- 📅 **Confirm attendance** so users can join or attend events.
 
 - 🙍‍♂️ **User profile pages** to view personal info and created events.

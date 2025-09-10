@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   createdEvents: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Event' }]
 }, { timestamps: true });
 
-// Password hashing before save
+
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   try {
@@ -20,7 +20,6 @@ userSchema.pre('save', async function (next) {
   }
 });
 
-// Password comparison method
 userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
