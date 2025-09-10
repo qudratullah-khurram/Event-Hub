@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<%- include('../partials/_navbar') %>
+
+
+
+  <h1>Community</h1>
+  <ul>
+    <% users.forEach(u => { %>
+      <li><a href="/users/<%= u._id %>"><%= u.username %></a></li>
+    <% }) %>
+  </ul>
+
+<%- include('../partials/_footer') %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div>
+    <a href="/">EventHub</a>
+    <a href="/events">Events</a>
+    <a href="/events/new">Create Event</a>
+    <a href="/users">Community</a>
+  </div>
+  <div>
+    <% if (user) { %>
+      <span>Welcome, <%= user.username %></span>
+      <a href="/auth/sign-out">Sign Out</a>
+    <% } else { %>
+      <a href="/auth/sign-in">Sign In</a>
+      <a href="/auth/sign-up">Sign Up</a>
+    <% } %>
+  </div>
+</nav>

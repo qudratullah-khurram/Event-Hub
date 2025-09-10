@@ -8,7 +8,6 @@ const MongoStore = require('connect-mongo');
 
 const app = express();
 
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
@@ -26,16 +25,27 @@ app.use(
   })
 );
 
-
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('✅ MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
+const passUserToView = require('./middleware/pass-user-to-view');
+const isSignedIn = require('./middleware/is-signed-in');
+
+const authController = require('./controllers/auth');
+const eventsController = require('./controllers/events');
+const usersController = require('./controllers/users');
+
+/////////////////////////////////////////////////////
+app.use(passUserToView); 
+
+app.use('/auth', authController);
+app.use('/events', eventsController);
+app.use('/users', usersController);
 
 app.get('/', (req, res) => {
-  res.send('Welcome to EventHub 🎉');
+  res.render('index.ejs');
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

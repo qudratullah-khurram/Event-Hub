@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<%- include('../partials/_navbar') %>
+
+
+  
+  <h1><%= user.username %>'s Events</h1>
+  <% if (events.length === 0) { %>
+    <p>No events by this user.</p>
+  <% } else { %>
+    <ul>
+      <% events.forEach(ev => { %>
+        <li><a href="/events/<%= ev._id %>"><%= ev.title %></a> - <%= ev.date ? new Date(ev.date).toLocaleString() : '' %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+<%- include('../partials/_footer') %>
+</body>
+</html>

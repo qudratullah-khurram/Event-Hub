@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<%- include('../partials/_navbar') %>
+
+
+  <h2>Sign Up</h2>
+  <form action="/auth/sign-up" method="POST">
+    <label>Username: <input name="username" required></label><br>
+    <label>Email: <input name="email" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Create account</button>
+  </form>
+
+<%- include('../partials/_footer') %>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+   <%- include('../partials/_navbar') %>
+  <h1><%= event.title %></h1>
+  <p><strong>Date:</strong> <%= event.date ? new Date(event.date).toLocaleString() : '' %></p>
+  <p><strong>Location:</strong> <%= event.location %></p>
+  <p><strong>Description:</strong> <%= event.description %></p>
+  <p><strong>Creator:</strong> <%= event.createdBy && event.createdBy.username ? event.createdBy.username : 'unknown' %></p>
+
+  <% if (user && event.createdBy && user._id === event.createdBy._id.toString()) { %>
+    <a href="/events/<%= event._id %>/edit">Edit</a>
+    <form action="/events/<%= event._id %>?_method=DELETE" method="POST" style="display:inline;">
+      <button type="submit">Delete</button>
+    </form>
+  <% } %>
+
+  <p><a href="/events">Back to events</a></p>
+<%- include('../partials/_footer') %>
+</body>
+</html>

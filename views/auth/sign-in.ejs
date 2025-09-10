@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventHub</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+
+  <h2>Sign In</h2>
+  <form action="/auth/sign-in" method="POST">
+    <label>Username: <input name="username" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <button type="submit">Sign in</button>
+  </form>
+<%- include('../partials/_footer') %>
+</body>
+</html>
+
