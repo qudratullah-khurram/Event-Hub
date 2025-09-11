@@ -7,7 +7,7 @@
   </div>
   <div>
     <% if (user) { %>
-      <span>Welcome, <%= user.username %></span>
+      <span>Welcome <a href="/users/<%= user._id%>"><%= user.username %></a></span>
       <a href="/auth/sign-out">Sign Out</a>
     <% } else { %>
       <a href="/auth/sign-in">Sign In</a>
